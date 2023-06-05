@@ -1,0 +1,514 @@
+* {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+											supported by Chrome, Edge, Opera and Firefox */
+}
+
+//====================================================================================================
+
+.main {
+	// .main__body
+
+	&__body {
+		position: relative;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		row-gap: 15px;
+
+		height: 100vh;
+		max-height: 100vh;
+
+		transition: all 0.7s ease 0.3s;
+
+		._shop & {
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(-20px);
+		}
+	}
+
+	&__buttons {
+		position: relative;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		width: 100%;
+		height: 100%;
+	}
+
+	&__score-box {
+		position: absolute;
+		top: 7px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	// .main__content
+
+	&__content {
+		flex: 1 1 auto;
+		display: flex;
+		justify-content: center;
+		column-gap: 40px;
+		width: 100%;
+
+		@media (min-width: 700px) and (min-height: 700px) {
+			align-items: center;
+		}
+	}
+
+	// .main__button-box
+
+	&__button-box {
+		margin-top: 45px;
+	}
+
+	// .main__button
+
+	&__button {
+		width: 148px;
+		height: 148px;
+
+		background-image: linear-gradient(180deg, #de5efa 0%, #6506b6 100%);
+
+		border: 2px solid #ffffff;
+		border-radius: 20px;
+		@media (max-width: 620px) {
+			width: 100px;
+			height: 100px;
+		}
+	}
+
+	// .main__cards-box
+
+	&__cards-box {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		row-gap: 21px;
+	}
+
+	// .main__cards
+
+	&__cards {
+		display: flex;
+		column-gap: 10px;
+	}
+
+	// .main__card
+
+	&__card {
+		width: 66px;
+		height: 66px;
+
+		border: 1px solid #ffffff;
+		border-radius: 5px;
+
+		filter: drop-shadow(0px 7px 10px #00b3ff);
+
+		&._disabled {
+			pointer-events: none;
+			border: 1px solid #8c8c8c;
+			&::before {
+				content: "";
+				position: absolute;
+				z-index: 2;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+				border-radius: 5px;
+			}
+		}
+	}
+
+	// .main__clock-box
+
+	&__clock-box {
+	}
+}
+
+._text-gr {
+	span {
+		font-size: 32px;
+		line-height: 1;
+		text-transform: uppercase;
+
+		background-image: linear-gradient(
+			180deg,
+			#faf1a6 0%,
+			#fffbc3 20.68%,
+			#e4ce85 40.12%,
+			#b28f4f 54.69%,
+			#c9a567 73.23%,
+			#e8d27c 87.29%,
+			#f7d385 100%
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		@media (max-width: 620px) {
+			font-size: 22px;
+		}
+	}
+}
+
+//========================================================================================================================================================
+.score-box {
+	// .score-box__body
+
+	&__body {
+		position: relative;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		column-gap: 5px;
+
+		width: 170px;
+		height: 53px;
+
+		background-image: url("@img/icons/score-bg.png");
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		padding-bottom: 5px;
+
+		font-size: 20px;
+		line-height: 1;
+
+		text-transform: uppercase;
+
+		color: #ffffff;
+	}
+
+	// .score-box__score
+
+	&__score {
+	}
+}
+
+//========================================================================================================================================================
+.header-main {
+	width: 100%;
+	&__body {
+		position: relative;
+		z-index: 5;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		column-gap: 90px;
+		width: 100%;
+		height: 45px;
+
+		@media (max-width: 620px) {
+			column-gap: 30px;
+		}
+	}
+
+	&__button-home {
+		position: absolute;
+		top: -2px;
+		left: 20px;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		width: 132px;
+		height: 41.15px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: url("@img/icons/button-bg.png");
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+
+			transform: rotate(180deg);
+		}
+
+		span {
+			position: relative;
+			z-index: 2;
+			font-size: 24px;
+			line-height: 1;
+
+			color: #ffffff;
+			text-transform: uppercase;
+		}
+		@media (max-width: 650px) {
+			left: 0px;
+		}
+	}
+
+	&__button {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+
+		font-weight: 400;
+		font-size: 12px;
+		line-height: math.div(14, 12);
+
+		color: #ffffff;
+	}
+}
+
+.icon-game {
+	width: 20px;
+	height: 21px;
+	background-image: url("@img/icons/coin.svg");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	.final & {
+		width: 28px;
+		height: 29px;
+	}
+}
+
+//========================================================================================================================================================
+.game {
+	position: absolute;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-10px);
+
+	transition: all 0.7s ease 0.3s;
+
+	background-image: url("@img/other/bg.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	._game & {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+	// .game__body
+
+	&__body {
+		position: relative;
+
+		display: flex;
+		flex-direction: column;
+
+		min-height: 100vh;
+	}
+
+	// .game__header
+
+	&__header {
+	}
+
+	// .game__content-box
+
+	&__content-box {
+		flex: 1 1 auto;
+
+		@media (min-width: 700px) and (min-height: 700px) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	&__content {
+		position: relative;
+		top: 50px;
+		display: flex;
+		justify-content: center;
+		column-gap: 40px;
+	}
+
+	// .game__button-box
+
+	&__button-box {
+	}
+
+	// .game__button
+
+	&__button {
+		position: relative;
+		top: 40px;
+
+		width: 148px;
+		height: 148px;
+
+		background-image: linear-gradient(180deg, #de5efa 0%, #6506b6 100%);
+
+		border: 2px solid #ffffff;
+		border-radius: 20px;
+
+		span {
+			font-size: 32px;
+			line-height: 1;
+
+			background: linear-gradient(
+				180deg,
+				#faf1a6 0%,
+				#fffbc3 20.68%,
+				#e4ce85 40.12%,
+				#b28f4f 54.69%,
+				#c9a567 73.23%,
+				#e8d27c 87.29%,
+				#f7d385 100%
+			);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		@media (max-width: 620px) {
+			width: 100px;
+			height: 100px;
+			span {
+				font-size: 22px;
+			}
+		}
+
+		&._hold {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+	}
+
+	// .game__clock-box
+
+	&__clock-box {
+	}
+
+	// .game__clock
+
+	&__clock {
+	}
+}
+
+//====================================================================================================
+@keyframes no-money {
+	0% {
+		color: #fff;
+	}
+	100% {
+		color: rgb(255, 0, 0);
+		transform: scale(1.1);
+	}
+}
+@keyframes delete-money {
+	0% {
+		color: #fff;
+	}
+	100% {
+		color: rgb(255, 155, 155);
+		transform: translateY(3px);
+	}
+}
+@keyframes add-money {
+	100% {
+		color: yellow;
+		transform: translateY(-3px);
+	}
+}
+@keyframes jump_icon {
+	0%,
+	69% {
+		transform: translate(0, 0);
+	}
+	77% {
+		transform: translate(0, -10px);
+	}
+	80% {
+		transform: translate(0px, 0px);
+	}
+	82% {
+		transform: translate(0px, -6px);
+	}
+	85% {
+		transform: translate(0px, 0px);
+	}
+	87% {
+		transform: translate(0px, -2px);
+	}
+	90% {
+		transform: translate(0px, 0px);
+	}
+	100% {
+		transform: translate(0px, 0px);
+	}
+}
+@keyframes scale_icon {
+	0% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(1.2);
+	}
+}
+@keyframes rotate_icon {
+	0% {
+		transform: rotateY(0deg);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}
+@keyframes rotate_icon-2 {
+	0% {
+		transform: rotate(0deg);
+		right: 0;
+	}
+	70% {
+		transform: rotate(-360deg);
+		right: 100px;
+	}
+	100% {
+		transform: rotate(0deg);
+		right: 0;
+	}
+}
+
+@keyframes arrow-pr {
+	0%,
+	100% {
+		transform: translate(-99%, -46%) rotate(-44deg);
+	}
+	10% {
+		transform: translate(-99%, -46%) rotate(-1deg);
+	}
+	30% {
+		transform: translate(-99%, -46%) rotate(-21deg);
+	}
+	50% {
+		transform: translate(-99%, -46%) rotate(60deg);
+	}
+	70% {
+		transform: translate(-99%, -46%) rotate(15deg);
+	}
+	80% {
+		transform: translate(-99%, -46%) rotate(200deg);
+	}
+}

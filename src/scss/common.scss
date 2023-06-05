@@ -1,0 +1,232 @@
+.button {
+	position: relative;
+	z-index: 1;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 148px;
+	height: 73px;
+
+	background-image: linear-gradient(180deg, #de5efa 0%, #6506b6 100%);
+
+	border: 2px solid #ffffff;
+	border-radius: 20px;
+
+	@media (min-width: 600px) and (min-height: 600px) {
+		width: 300px;
+		height: 75px;
+		span {
+			font-size: 28px;
+		}
+	}
+
+	&._hold {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+}
+
+[type="button"] {
+	transition: all 0.3s ease 0s;
+
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	&:active {
+		transform: translateY(3px);
+	}
+}
+
+//========================================================================================================================================================
+.preloader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+
+	width: 100%;
+	min-height: 100vh;
+
+	background-image: url("@img/other/bg.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	overflow: hidden;
+
+	transition: all 0.3s ease 0s;
+
+	&__block-acces {
+		padding-top: 26px;
+		padding-left: 25px;
+	}
+
+	&__acces {
+	}
+
+	&__button-box {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		row-gap: 10px;
+	}
+
+	&__clock-box {
+		flex: 1 1 auto;
+
+		display: flex;
+		align-items: center;
+	}
+
+	// .preloader__button
+
+	&__button {
+		position: relative;
+		z-index: 3;
+		margin-bottom: 25px;
+	}
+
+	&._hide {
+		top: -20%;
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+.acces-preloader {
+	position: relative;
+	z-index: 4;
+
+	display: flex;
+	flex-direction: column;
+	max-height: calc(100vh - 26px);
+	max-width: 100vw;
+	padding-block: 10px 40px;
+	padding-inline: 10px;
+
+	background: rgba(18, 12, 29, 0.83);
+	border-radius: 8px 8px 0 0;
+
+	overflow: auto;
+
+	&._hide {
+		display: none;
+	}
+
+	&__title {
+		font-size: 20px;
+		line-height: 1;
+		text-transform: uppercase;
+
+		color: #ffffff;
+
+		margin-bottom: 10px;
+	}
+
+	// .acces-preloader__text
+
+	&__text {
+		padding-bottom: 12px;
+	}
+
+	&__link {
+		color: #ebff00;
+	}
+}
+
+.clock {
+	// .clock__body
+
+	&__body {
+		position: relative;
+
+		width: 290px;
+		height: 290px;
+
+		background-image: url("@img/other/clock.png");
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		._small & {
+			width: 210px;
+			height: 210px;
+		}
+	}
+
+	// .clock__arrow
+
+	&__arrow {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform-origin: right center;
+		transform: translate(-99%, -46%) rotate(-44deg);
+
+		width: 94px;
+		height: 17px;
+
+		background-image: url("@img/other/arrow-clock.png");
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		transition: all 0.5s ease 0s;
+
+		._anim & {
+			animation: arrow-pr 20s ease 0s infinite;
+		}
+	}
+}
+
+.text-pre {
+	font-size: 16px;
+	line-height: 1;
+
+	color: #ffffff;
+
+	&__title {
+		text-transform: uppercase;
+	}
+	@media (min-width: 700px) and (min-height: 700px) {
+		font-size: 24px;
+	}
+}
+
+.score {
+	&._no-money {
+		animation: no-money 0.7s ease 2;
+	}
+	&._delete-money {
+		animation: delete-money 0.7s ease;
+	}
+	&._anim-add-money {
+		animation: add-money 0.5s ease 3;
+	}
+}
+
+.icon-anim {
+	&._anim-icon-jump {
+		animation: jump_icon 5s ease;
+	}
+	&._anim-icon-scale {
+		animation: scale_icon 0.5s ease 2;
+	}
+	&._anim-icon-rotate {
+		animation: rotate_icon 1.5s ease-out 1;
+	}
+	&._anim-icon-rotate-2 {
+		animation: rotate_icon-2 1.5s ease 1;
+	}
+}
+
+._touch-hack {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+//========================================================================================================================================================

@@ -1,0 +1,231 @@
+.slot {
+	position: absolute;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-10px);
+
+	transition: all 0.7s ease 0.3s;
+
+	background-image: url("@img/slot/bg.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	._slot & {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+	// .slot__body
+
+	&__body {
+		position: relative;
+
+		display: flex;
+		flex-direction: column;
+
+		min-height: 100vh;
+	}
+
+	&__btn-home {
+		width: 110px;
+		height: 25px;
+		span {
+			font-size: 15px;
+		}
+	}
+
+	&__header {
+		position: relative;
+		z-index: 5;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__game {
+		display: flex;
+		align-items: center;
+		@media (min-width: 700px) and (min-height: 700px) {
+			position: relative;
+			top: 80px;
+		}
+	}
+
+	// .slot__box
+
+	&__box {
+		width: 100vw;
+		position: relative;
+		display: flex;
+		margin: 0 auto;
+	}
+
+	// .slot__cont
+
+	&__cont {
+		position: relative;
+		top: 10px;
+		flex: 1 1 auto;
+
+		display: flex;
+		flex-direction: column;
+
+		z-index: 2;
+	}
+
+	// .slot__controls
+
+	&__controls {
+	}
+
+	&__frame {
+		position: absolute;
+		top: 49%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		width: 100%;
+		height: 110%;
+
+		background-image: url("@img/slot/frame.png");
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+}
+
+.controls-slot {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+
+	z-index: 10;
+
+	// .controls-slot__body
+
+	&__body {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	&__button-box {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 15px;
+
+		padding-right: 40px;
+
+		transition: all 0.3s ease 0s;
+
+		&._hold {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+	}
+
+	&__button-spin,
+	&__auto {
+		width: 170px;
+		height: 53px;
+
+		background-image: url("@img/icons/button-bg.png");
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		font-size: 32px;
+		line-height: 1;
+		text-transform: uppercase;
+
+		color: #ffffff;
+	}
+
+	// .controls-slot__button-spin
+
+	&__button-spin {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		transition: all 0.3s ease 0s;
+
+		&._hold {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+	}
+}
+
+#slot1 {
+	flex: 1 1 auto;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+	top: 10px;
+}
+
+.reels1 {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	column-gap: 5px;
+
+	width: 52vw;
+	height: calc((5 / 3) * 100vw);
+	max-height: 28vw;
+	max-width: calc(2.2 * (90vh - 50px));
+	padding-inline: 10px;
+
+	@media (min-width: em(700)) and (min-height: em(700)) {
+		width: 65vw;
+		max-height: 37vw;
+	}
+}
+
+.reel1 {
+	position: relative;
+	overflow: hidden;
+	z-index: 5;
+	width: 20%;
+	height: 100%;
+	padding-top: 3px;
+
+	.icons {
+		position: relative;
+		z-index: 3;
+		text-align: center;
+		padding-top: 3px;
+
+		img {
+			position: relative;
+			width: calc(100% - 5px);
+			margin: -3px 0 10px -3px;
+			height: auto;
+
+			transform: translate3d(0, 0, 0);
+		}
+	}
+}
+
+#slot1.inverted .reel {
+	transform: scaleY(-1);
+}
+
+#slot1.inverted .reel > .icons > img {
+	transform: scaleY(-1);
+}
